@@ -5,8 +5,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Jump</title>
+    <script language="javascript">
+        function jump() {
+            let left = document.getElementById("left");
+            let right = document.getElementById("right");
+            let btn = document.getElementById("btn");
+            if (btn.value === "JUMP >") {
+                btn.value = "< JUMP";
+                right.value = left.value;
+                left.value = "";
+            } else {
+                btn.value = "JUMP >";
+                left.value = right.value;
+                right.value = "";
+            }
+        }
+    </script>
 </head>
 <body>
-    
+    <form>
+        <input type="text" id="left">
+        <input type="button" value="JUMP >" id="btn" onclick="jump()">
+        <input type="text" id="right">
+    </form>
 </body>
 </html>
