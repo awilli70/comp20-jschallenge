@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkboxes :)</title>
+    <script language="javascript">
+        function changeBtn() {
+            let btn = document.getElementById("btn")
+            let btnarr = [false, false, false, false, false];
+            for (let i = 1; i <= 5; i++) {
+                btnarr[i] = document.getElementById(i.toString()).checked;
+            }
+            let onechecked = btnarr.reduce((a, x) => {
+                return (a) ? a : x; 
+            })
+            onechecked ? btn.value = "Uncheck All" : btn.value = "Check All"
+        }
+        function flipAll () {
+            let btn = document.getElementById("btn")
+            let checkBool = (btn.value === "Check All")
+
+            for (let i = 1; i <= 5; i++) {
+                document.getElementById(i.toString()).checked = checkBool;
+            }
+            checkBool? btn.value = "Uncheck All" : btn.value = "Check All"
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="checkbox" name="" id="1" onclick="changeBtn()">
+        <input type="checkbox" name="" id="2" onclick="changeBtn()">
+        <input type="checkbox" name="" id="3" onclick="changeBtn()">
+        <input type="checkbox" name="" id="4" onclick="changeBtn()">
+        <input type="checkbox" name="" id="5" onclick="changeBtn()">
+        <input type="button" value="Check All" id="btn" onclick="flipAll()">
+    </form>
+</body>
+</html>
